@@ -2,18 +2,15 @@
 GRADE_POINT = {"A+": 4.5, "A": 4.0, "B+": 3.5, "B": 3.0, "C+": 2.5, "C": 2.0, "D+": 1.5, "D": 1.0, "F": 0.0}
 
 def get_input():
-    """사용자로부터 학점과 평점을 입력받아 반환하는 함수"""
-    credit = int(input("학점을 입력하세요: "))
-    grade = input("평점을 입력하세요: ")
+    credit = int(input("학점을 입력하세요: \n"))
+    grade = input("평점을 입력하세요: \n")
     return credit, grade
 
 def calculate_total_grade(subj_list, include_f_grade=True):
-    """주어진 과목 리스트에서 제출용 또는 열람용 학점 총합과 평균(GPA)을 계산하는 함수"""
     total_credit = 0
     total_grade_point = 0
     for subj in subj_list:
         credit, grade = subj
-        # 열람용 학점에 F학점이 포함되는 경우
         if include_f_grade or grade != "F":
             total_credit += credit
             total_grade_point += credit * GRADE_POINT[grade]
@@ -26,7 +23,7 @@ def calculate_total_grade(subj_list, include_f_grade=True):
 def main():
     subj_list = []
     while True:
-        print("작업을 선택하세요. 1. 입력 2. 계산")
+        print("작업을 선택하세요.\n1. 입력\n2. 계산")
         menu = int(input())
         if menu == 1:
             credit, grade = get_input()
